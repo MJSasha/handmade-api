@@ -17,15 +17,19 @@ public class HouseService {
         this.housesRepository = housesRepository;
     }
 
-    public List<HouseEntity> getAllHouses() {
+    public List<HouseEntity> getAll() {
         return (List<HouseEntity>) housesRepository.findAll();
     }
 
-    public HouseEntity getHouseById(Long id) {
-        return (HouseEntity) housesRepository.findById(id).get();
+    public HouseEntity getById(Long houseId) {
+        return (HouseEntity) housesRepository.findById(houseId).get();
     }
 
-    public void addHouse(HouseEntity house) {
+    public void add(HouseEntity house) {
         housesRepository.save(house);
+    }
+
+    public void delete(Long houseId){
+        housesRepository.deleteById(houseId);
     }
 }
