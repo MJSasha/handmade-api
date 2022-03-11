@@ -17,9 +17,14 @@ public class HousesController {
         this.houseService = houseService;
     }
 
-    @GetMapping("/hello")
-    public ResponseEntity hello() {
-        return ResponseEntity.ok("Hello");
+
+    @GetMapping("/{id}")
+    public ResponseEntity getHouseById(@PathVariable Long id) {
+        try {
+            return ResponseEntity.ok(houseService.getHouseById(id));
+        } catch (Exception e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping

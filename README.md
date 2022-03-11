@@ -15,7 +15,7 @@ In this project, I am trying to implement the REST API myself.
 
 - [ ] Implement methods:
     - [ ] Get all models
-    - [ ] Get model by id
+    - [x] Get model by id
     - [x] Add model
     - [ ] Model editing
     - [ ] Delete model

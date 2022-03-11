@@ -21,6 +21,10 @@ public class HouseService {
         return (List<HouseEntity>) housesRepository.findAll();
     }
 
+    public HouseEntity getHouseById(Long id) {
+        return (HouseEntity) housesRepository.findById(id).get();
+    }
+
     public void addHouse(HouseEntity house) {
         housesRepository.save(house);
     }
