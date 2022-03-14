@@ -14,7 +14,7 @@ In this project, I am trying to implement the REST API myself.
 ## Tasks
 
 - [ ] Implement methods:
-    - [ ] Get all models
+    - [x] Get all models
     - [x] Get model by id
     - [x] Add model
     - [ ] Model editing
@@ -23,6 +23,8 @@ In this project, I am trying to implement the REST API myself.
 
 ## What I'm struggling with
 
-The findAll() method throws an error. Googled for a few days, then gave up and posted a 
-[question on StackOverflow](https://stackoverflow.com/questions/71442906/crudrepository-findall). 
-While waiting for an answer
+> The findAll() method throws an error. Googled for a few days, then gave up and posted a 
+> [question on StackOverflow](https://stackoverflow.com/questions/71442906/crudrepository-findall). 
+> While waiting for an answer
+
+Problem solved, I rebuilt the project and recreated the database and everything worked.
