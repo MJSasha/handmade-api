@@ -13,12 +13,13 @@ In this project, I am trying to implement the REST API myself.
 
 ## Tasks
 
-- [ ] Implement methods:
+- [x] Implement methods:
     - [x] Get all models
     - [x] Get model by id
     - [x] Add model
-    - [ ] Model editing
+    - [x] Model editing
     - [x] Delete model
+- [ ] Write unit tests
 - [ ] Deploy the project to the server
 
 ## What I'm struggling with

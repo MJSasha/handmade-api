@@ -22,14 +22,20 @@ public class HouseService {
     }
 
     public HouseEntity getById(Long houseId) {
-        return (HouseEntity) housesRepository.findById(houseId).get();
+        return housesRepository.findById(houseId).get();
     }
 
     public void add(HouseEntity house) {
         housesRepository.save(house);
     }
 
-    public void delete(Long houseId){
+    public void update(HouseEntity house) {
+        HouseEntity houseToUpdate = housesRepository.findById(house.getId()).get();
+        houseToUpdate.setName(house.getName());
+        housesRepository.save(houseToUpdate);
+    }
+
+    public void delete(Long houseId) {
         housesRepository.deleteById(houseId);
     }
 }

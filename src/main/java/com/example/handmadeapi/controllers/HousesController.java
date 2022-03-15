@@ -30,10 +30,15 @@ public class HousesController {
         }
     }
 
+    // TODO: 3/15/2022 Add try/catch 
     @GetMapping
     public ResponseEntity getAll() {
-        return ResponseEntity.ok(houseService.getAll());
-    }
+        try {
+            return ResponseEntity.ok(houseService.getAll());
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+    } 
 
     @PostMapping
     public ResponseEntity add(@RequestBody HouseEntity house) {
@@ -42,6 +47,17 @@ public class HousesController {
             return ResponseEntity.ok("Add successes");
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Already contains");
+        }
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity update(@PathVariable Long id, @RequestBody HouseEntity house){
+        try {
+            house.setId(id);
+            houseService.update(house);
+            return ResponseEntity.ok("House is updated");
+        } catch (EmptyResultDataAccessException e) {
+            return ResponseEntity.notFound().build();
         }
     }
 
