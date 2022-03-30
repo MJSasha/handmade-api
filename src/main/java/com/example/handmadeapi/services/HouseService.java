@@ -5,6 +5,8 @@ import com.example.handmadeapi.repository.HousesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -23,6 +25,10 @@ public class HouseService {
 
     public HouseEntity getById(Long houseId) {
         return housesRepository.findById(houseId).get();
+    }
+
+    public void add(ArrayList<HouseEntity> houses){
+        housesRepository.saveAll(houses);
     }
 
     public void add(HouseEntity house) {

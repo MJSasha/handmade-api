@@ -7,6 +7,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 
 @RestController
@@ -30,7 +31,6 @@ public class HousesController {
         }
     }
 
-    // TODO: 3/15/2022 Add try/catch 
     @GetMapping
     public ResponseEntity getAll() {
         try {
@@ -38,7 +38,17 @@ public class HousesController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().build();
         }
-    } 
+    }
+
+    @PostMapping("/addAll")
+    public ResponseEntity addAll(@RequestBody ArrayList<HouseEntity> houses) {
+        try {
+            houseService.add(houses);
+            return ResponseEntity.ok("Add successes");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Already contains");
+        }
+    }
 
     @PostMapping
     public ResponseEntity add(@RequestBody HouseEntity house) {
