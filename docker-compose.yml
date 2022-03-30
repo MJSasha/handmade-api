@@ -1,10 +1,22 @@
-version: '2'
+version: "3"
 
 services:
 
-  db:
-    image: 'postgres:13.1-alpine'
-    container_name: db
+  houses-api-local:
+    image: mjsasha/myrepo:houses-api-local
+    container_name: houses-api
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - PSQL_HOST=postgres
+      - PSQL_PORT=5432
+      - PSQL_USER=postgres
+      - PSQL_PASSWORD=postgres
+
+  postgres:
+    image: postgres:14.2
+    container_name: postgres
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
