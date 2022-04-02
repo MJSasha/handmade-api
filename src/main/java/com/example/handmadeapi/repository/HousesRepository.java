@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface HousesRepository extends CrudRepository<HouseEntity, Long> {
-    void deleteAllById(Long[] housesId);
 }

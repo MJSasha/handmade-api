@@ -26,12 +26,8 @@ public class HouseService {
         return housesRepository.findById(houseId).get();
     }
 
-    public void add(ArrayList<HouseEntity> houses){
+    public void add(ArrayList<HouseEntity> houses) {
         housesRepository.saveAll(houses);
-    }
-
-    public void add(HouseEntity house) {
-        housesRepository.save(house);
     }
 
     public void update(HouseEntity house) {
@@ -40,11 +36,9 @@ public class HouseService {
         housesRepository.save(houseToUpdate);
     }
 
-    public void delete(Long houseId) {
-        housesRepository.deleteById(houseId);
-    }
-
-    public void delete(Long[] housesId){
-        housesRepository.deleteAllById(housesId);
+    public void delete(Long[] housesId) {
+        for (Long id : housesId) {
+            housesRepository.deleteById(id);
+        }
     }
 }

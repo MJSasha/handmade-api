@@ -70,12 +70,7 @@ public class HousesController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable Long id){
-        try {
-            houseService.delete(id);
-            return ResponseEntity.ok("House is deleted");
-        } catch (EmptyResultDataAccessException e) {
-            return ResponseEntity.notFound().build();
-        }
+        return delete(new Long[]{id});
     }
 
     @DeleteMapping("/deleteAll")
