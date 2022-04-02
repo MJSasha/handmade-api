@@ -43,4 +43,8 @@ public class HouseService {
     public void delete(Long houseId) {
         housesRepository.deleteById(houseId);
     }
+
+    public void delete(Long[] housesId){
+        housesRepository.deleteAllById(housesId);
+    }
 }
